@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Permission {
 	//Attributes
-	private ArrayList<String> codes;
-	private boolean coincide;
+	private ArrayList<String> codes = null;
+	private boolean coincide = false;
 	
 
 	//Getters and Setters
@@ -20,13 +20,14 @@ public class Permission {
 		
 	}
 
-	public void setPermission(Student student) {
+	public void setPermission(Student student, Teacher teacher) {
 		boolean coincide = false; 
 		
 		for(int i = codes.size(); !coincide && i>0; --i) {
 			if(codes.get(i).equals(student.code)) {
 				coincide = true;
-				student.setPermission(true);
+				if(teacher.givePermission())student.setPermission(true);
+				
 			}else student.setPermission(false);
 		}
 		

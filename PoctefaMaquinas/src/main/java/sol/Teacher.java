@@ -4,10 +4,14 @@ import java.util.Random;
 
 public class Teacher extends Person {
 	//Attributes
-	private String username;
-	private String password;
+	private String username = null;
+	private String password = null;
 	
 	//Constructor
+	public Teacher() {
+		super();
+	}
+	
 	public Teacher(int id, String lastName, String name,String code, String username,String password) {
 		super(id, lastName, name,code);
 		setUsername(lastName, name);
@@ -58,7 +62,10 @@ public class Teacher extends Person {
 		this.name = name;
 		
 	}
-
-
+	
+	public boolean givePermission() {
+		return false;
+	}
+	
 	
 }

@@ -3,7 +3,7 @@ package sol;
 
 public class Student extends Person{
 	//Attributes
-	Boolean permission;
+	Boolean permission = false;
 	
 	//Constructor
 	public Student(int id,String lastName, String name, String code) {

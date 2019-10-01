@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Code {
 	//Attributes
-	private String code;
+	private String code = null;
 
 	public String getCode() {
 		return this.code;

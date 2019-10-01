@@ -4,9 +4,9 @@ package sol;
 public abstract class Person {
 	// Attributes
 	protected int id;
-	protected String lastName;
-	protected String name;
-	protected String code;
+	protected String lastName = null;
+	protected String name = null;
+	protected String code = null;
 	
 
 	//constructor
