@@ -1,24 +1,34 @@
 package sol;
 
-public class Teacher extends Person implements APassword{
+import java.util.Random;
+
+public class Teacher extends Person {
 	//Attributes
 	private String username;
 	private String password;
 	
 	//Constructor
-		public Teacher(int id, String lastName, String name,String code, String username,String password) {
-			super(id, lastName, name,code);
-			setUsername(lastName, name);
-			setPassword(password);
-		}
+	public Teacher(int id, String lastName, String name,String code, String username,String password) {
+		super(id, lastName, name,code);
+		setUsername(lastName, name);
+		setPassword(password);
+	}
 
 	//Getters and Setters
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getUsername() {
 		return username;
 	}
-
+		
+	//username = 1 letter of last name and all letters of name
 	public void setUsername(String lastName, String name) {
-		username = name.charAt(0)+name;
+		username = lastName.charAt(0)+name;
 		this.username = username.toUpperCase();
 	}
 
@@ -49,15 +59,5 @@ public class Teacher extends Person implements APassword{
 		
 	}
 
-	@Override
-	public String getPassword() {
-		return this.password;
-	}
-
-	@Override
-	public void setPassword(String pass) {
-		this.password = pass;
-		
-	}
 
 }

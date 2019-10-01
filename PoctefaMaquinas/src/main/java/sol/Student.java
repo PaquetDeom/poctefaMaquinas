@@ -1,32 +1,16 @@
 package sol;
 
 public class Student extends Person{
-
+	//Attributes
+	Boolean permission;
+	
 	//Constructor
-	public Student(int id, String lastName, String name,String code) {
-		super(id, lastName, name,code);
+	public Student(int id,String lastName, String name, String code) {
+		super(id,lastName, name, code);
+		 permission = false;
 	}
 
-	//Getters and Setters
-
-	@Override
-	public String getLastName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	//Setters (Getters in Person)
 	@Override
 	public void setId(int id) {
 		// TODO Auto-generated method stub
@@ -37,7 +21,8 @@ public class Student extends Person{
 	@Override
 	public void setLastName(String lastName) {
 		// TODO Auto-generated method stub
-		this.lastName = lastName;
+		this.lastName = lastName; 
+		
 	}
 
 	@Override
@@ -48,11 +33,20 @@ public class Student extends Person{
 	}
 
 	@Override
-	public void setCode (String code) {
+	public void setCode(String code) {
 		// TODO Auto-generated method stub
 		this.code = code;
 		
 	}
+
+	public Boolean getPermission() {
+		return permission;
+	}
+
+	public void setPermission(Boolean permission) {
+		this.permission = permission;
+	}
+
 
 
 }

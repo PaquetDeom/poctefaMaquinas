@@ -1,5 +1,7 @@
 package sol;
 
+import java.util.Random; 
+
 public class Code {
 	//Attributes
 	private String code;
@@ -7,9 +9,18 @@ public class Code {
 	public String getCode() {
 		return this.code;
 	}
-
-	public void setCode(String code) {
-		for(int i=0; int<4; )
+	//code = 4 numbers (int)
+	public void setCode() {
+		Random numRandom = new Random();
+		int num;
+		
+		if(code.length()>4 || code.length()<4) {
+			for(int i=0; i <4; ++i) {
+				num = numRandom.nextInt(10);
+				code = code+num;
+			}
+		}
+		
 		this.code = code;
 	}
 	

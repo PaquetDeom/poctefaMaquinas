@@ -12,7 +12,7 @@ public abstract class Person {
 	public Person() {
 		super();
 	}
-	public Person(int id, String lastName, String name, String code) {
+	public Person(int id,String lastName, String name, String code) {
 		this.id = id;
 		this.lastName = lastName;
 		this.name = name;
@@ -22,7 +22,6 @@ public abstract class Person {
 	public int getId() {
 		return this.id;
 	}
-
 
 	public abstract void setId(int id);
 
