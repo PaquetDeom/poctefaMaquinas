@@ -1,5 +1,6 @@
 package sol;
 
+
 public class Student extends Person{
 	//Attributes
 	Boolean permission;

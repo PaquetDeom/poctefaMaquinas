@@ -1,5 +1,6 @@
 package sol;
 
+
 import java.util.Random; 
 
 public class Code {

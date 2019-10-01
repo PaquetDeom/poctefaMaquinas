@@ -1,5 +1,7 @@
 package sol;
 
+
+
 public class Tutor extends Teacher {
 	
 	//Constructor

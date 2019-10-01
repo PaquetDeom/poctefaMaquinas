@@ -1,5 +1,6 @@
 package sol;
 
+
 public abstract class Person {
 	// Attributes
 	protected int id;

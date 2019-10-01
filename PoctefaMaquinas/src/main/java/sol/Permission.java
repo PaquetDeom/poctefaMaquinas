@@ -5,6 +5,7 @@ public class Permission {
 	//Attributes
 	private ArrayList<String> codes;
 	private boolean coincide;
+	
 
 	//Getters and Setters
 	public boolean isPermission(Student student) {
