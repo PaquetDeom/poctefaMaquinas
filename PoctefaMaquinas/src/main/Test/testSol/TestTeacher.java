@@ -1,18 +1,23 @@
 package testSol;
-import javax.validation.constraints.AssertTrue;
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 
 import sol.Teacher;
 
 public class TestTeacher {
 
 	@Test
-
 	public void testName() {
+
 		try {
-			String name = "   paquet";
+
+			String name = "           name";
 			Teacher teach = new Teacher(0, "", name, "", "", "");
 
-			AssertTrue(name.equals("PAQUET"));
+			assertTrue(teach.getName().equals("PAQUET"));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
