@@ -33,6 +33,10 @@ import com.vaadin.ui.themes.ValoTheme;
  */
 public class LoginScreen extends CssLayout {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Label bienvenuLabel;
 	private TextField username;
 	private PasswordField password;
@@ -85,7 +89,7 @@ public class LoginScreen extends CssLayout {
 		Image logo = new Image("", new ThemeResource("img/logo64.gif"));
 		loginForm.addComponent(logo);
 
-		loginForm.addComponent(bienvenuLabel = new Label("Bienvenue sur Progress"));
+		loginForm.addComponent(bienvenuLabel = new Label("Bienvenue sur Poctefa"));
 		bienvenuLabel.setWidth("100%");
 		loginForm.addComponent(username = new TextField(""));
 		username.setWidth(15, Unit.EM);

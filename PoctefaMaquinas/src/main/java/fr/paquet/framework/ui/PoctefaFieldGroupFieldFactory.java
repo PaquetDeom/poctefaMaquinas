@@ -21,13 +21,12 @@ import eu.maxschuster.vaadin.colorpickerfield.ColorPickerAreaField;
 import eu.maxschuster.vaadin.colorpickerfield.ColorPickerField;
 import eu.maxschuster.vaadin.colorpickerfield.converter.ColorToHexConverter;
 import eu.maxschuster.vaadin.colorpickerfield.converter.HexToColorConverter;
-import fr.paquet.framework.ProgContainer;
-import fr.paquet.framework.ProgItem;
+import fr.paquet.framework.*;
 
-public class ProgFieldGroupFieldFactory extends DefaultFieldGroupFieldFactory {
+public class PoctefaFieldGroupFieldFactory extends DefaultFieldGroupFieldFactory {
 
 	static {
-		VaadinSession.getCurrent().setConverterFactory(new ProgConverterFactory());
+		VaadinSession.getCurrent().setConverterFactory(new PoctefaConverterFactory());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -41,7 +40,7 @@ public class ProgFieldGroupFieldFactory extends DefaultFieldGroupFieldFactory {
 			return (T) createListBuilderItem(type);
 		} else if (Boolean.class.isAssignableFrom(type)) {
 			return (T) createCheckBox();
-		} else if (ProgItem.class.isAssignableFrom(type)) {
+		} else if (PoctefaItem.class.isAssignableFrom(type)) {
 			return (T) createComboItem(type);
 		}
 		return createDefaultField(type, fieldType);
@@ -57,7 +56,7 @@ public class ProgFieldGroupFieldFactory extends DefaultFieldGroupFieldFactory {
 		try {
 			ParameterizedType parameterized = (ParameterizedType) List.class.getMethod("iterator").getGenericReturnType();
 			Class item = parameterized.getRawType().getClass();
-			Collection<ProgItem> values = new ProgContainer(item).findAll();
+			Collection<PoctefaItem> values = new PoctefaContainer(item).findAll();
 			return new TwinColSelect(null, values);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,7 +65,7 @@ public class ProgFieldGroupFieldFactory extends DefaultFieldGroupFieldFactory {
 	}
 
 	protected ComboBox createComboItem(Class<?> type) {
-		Collection<ProgItem> values = new ProgContainer(type).findAll();
+		Collection<PoctefaItem> values = new PoctefaContainer(type).findAll();
 		ComboBox combo = new ComboBox("", values);
 		combo.setNewItemsAllowed(false);
 		combo.setWidth(100.0f, Unit.PERCENTAGE);

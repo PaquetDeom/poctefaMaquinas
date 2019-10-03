@@ -20,10 +20,10 @@ import com.vaadin.ui.VerticalLayout;
 import eu.maxschuster.vaadin.colorpickerfield.ColorPickerAreaField;
 import eu.maxschuster.vaadin.colorpickerfield.ColorPickerField;
 import fr.paquet.framework.AnnotationInfo;
-import fr.paquet.framework.ProgItem;
+import fr.paquet.framework.PoctefaItem;
 import fr.paquet.framework.PropertyInfo;
 
-public class ProgCrudFormFactory extends GridLayoutCrudFormFactory<ProgItem> {
+public class PoctefaCrudFormFactory extends GridLayoutCrudFormFactory<PoctefaItem> {
 
 	/**
 	 * 
@@ -32,7 +32,7 @@ public class ProgCrudFormFactory extends GridLayoutCrudFormFactory<ProgItem> {
 
 	private AnnotationInfo info = null;
 
-	private static List<PropertyInfo> getColumnsInfo(Class<ProgItem> domainType) {
+	private static List<PropertyInfo> getColumnsInfo(Class<PoctefaItem> domainType) {
 		return new AnnotationInfo(domainType).getGridProperties();
 	}
 
@@ -42,28 +42,28 @@ public class ProgCrudFormFactory extends GridLayoutCrudFormFactory<ProgItem> {
 		return info;
 	}
 
-	public ProgCrudFormFactory(Class<ProgItem> domainType) {
-        super(domainType, 1, getColumnsInfo(domainType).size());  
-        setVisiblePropertyIds(CrudOperation.READ, getInfo().getFormNames());
-        setVisiblePropertyIds(CrudOperation.ADD, getInfo().getFormNames());
-        setVisiblePropertyIds(CrudOperation.DELETE, getInfo().getFormNames());
-        setVisiblePropertyIds(CrudOperation.UPDATE, getInfo().getFormNames());
-        
-        for(String passwordField:getInfo().getPasswordNames())
-        	setFieldType(passwordField, PasswordField.class);
+	public PoctefaCrudFormFactory(Class<PoctefaItem> domainType) {
+		super(domainType, 1, getColumnsInfo(domainType).size());
+		setVisiblePropertyIds(CrudOperation.READ, getInfo().getFormNames());
+		setVisiblePropertyIds(CrudOperation.ADD, getInfo().getFormNames());
+		setVisiblePropertyIds(CrudOperation.DELETE, getInfo().getFormNames());
+		setVisiblePropertyIds(CrudOperation.UPDATE, getInfo().getFormNames());
 
-        for(String colorField:getInfo().getColorNames())
-        	setFieldType(colorField, ColorPickerField.class);
+		for (String passwordField : getInfo().getPasswordNames())
+			setFieldType(passwordField, PasswordField.class);
+
+		for (String colorField : getInfo().getColorNames())
+			setFieldType(colorField, ColorPickerField.class);
 	}
 
 	@Override
-	public Component buildNewForm(CrudOperation operation, ProgItem domainObject, boolean readOnly,
+	public Component buildNewForm(CrudOperation operation, PoctefaItem domainObject, boolean readOnly,
 			Button.ClickListener cancelButtonClickListener, Button.ClickListener operationButtonClickListener) {
 		GridLayout gridLayout = new GridLayout(1, getColumnsInfo(domainType).size());
 		gridLayout.setWidth("100%");
 		gridLayout.setSpacing(true);
 
-		BeanFieldGroup fieldGroup = new ProgBeanFieldGroup(domainObject.getClass());
+		BeanFieldGroup fieldGroup = new PoctefaBeanFieldGroup(domainObject.getClass());
 		List<Field> fields = buildAndBind(operation, domainObject, readOnly, fieldGroup);
 		fields.stream().forEach(field -> gridLayout.addComponent(field));
 

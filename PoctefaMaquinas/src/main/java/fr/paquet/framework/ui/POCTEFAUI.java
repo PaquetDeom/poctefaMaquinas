@@ -7,7 +7,7 @@ import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.subject.Subject;
-import org.apache.tomcat.dbcp.dbcp2.DriverManagerConnectionFactory;
+
 import com.vaadin.addon.jpacontainer.JPAContainerFactory;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -19,13 +19,8 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
 import fr.paquet.framework.authentication.*;
 import fr.paquet.framework.ui.LoginScreen.*;
-import fr.paquet.ihm.Import.XMLImportView;
 
-import fr.paquet.ihm.progression.ProgressionView;
-import fr.paquet.ihm.referentiel.ReferentielView;
-import fr.paquet.ihm.sequence.SequenceView;
-import fr.paquet.progression.Progression;
-import fr.paquet.framework.ProgContainer;
+import fr.paquet.framework.*;
 
 /**
  * The Application's "main" class
@@ -33,10 +28,9 @@ import fr.paquet.framework.ProgContainer;
 @SuppressWarnings("serial")
 @Viewport("user-scalable=no,initial-scale=1.0")
 @Theme("caftheme")
-public class PROGRESSUI extends UI {
+public class POCTEFAUI extends UI {
 
-	public static final String PERSISTENCE_UNIT = "progress";
-	Progression prog = null;
+	public static final String PERSISTENCE_UNIT = "poctefa";
 
 	public static String getPersistenceUnit() {
 		return PERSISTENCE_UNIT;
@@ -52,10 +46,10 @@ public class PROGRESSUI extends UI {
 		// on renseigne les informations du role root
 		root = User.findByLogin("root");
 		if (root == null) {
-			ProgContainer userFactory = new ProgContainer(User.class);
+			PoctefaContainer userFactory = new PoctefaContainer(User.class);
 			root = new User("root", "root");
 			root.getRoles().add(new Role("manager"));
-			userFactory.create("PROGRESSUI", root);
+			userFactory.create("POCTEFASSUI", root);
 		}
 	}
 
@@ -72,7 +66,7 @@ public class PROGRESSUI extends UI {
 	protected void init(VaadinRequest vaadinRequest) {
 		Responsive.makeResponsive(this);
 		setLocale(vaadinRequest.getLocale());
-		getPage().setTitle("progress");
+		getPage().setTitle("poctefa");
 		Subject currentUser = SecurityUtils.getSubject();
 		if (!currentUser.isAuthenticated()) {
 			setContent(new LoginScreen(new LoginListener() {
@@ -89,12 +83,12 @@ public class PROGRESSUI extends UI {
 	private static MainScreen main = null;
 
 	private static void setMainScreen(MainScreen main) {
-		PROGRESSUI.main = main;
+		POCTEFAUI.main = main;
 	}
 
 	public static MainScreen getMainScreen() {
 		if (main == null)
-			setMainScreen(new MainScreen(PROGRESSUI.getCurrent()));
+			setMainScreen(new MainScreen(POCTEFAUI.getCurrent()));
 		return main;
 	}
 
@@ -106,10 +100,9 @@ public class PROGRESSUI extends UI {
 		addStyleName(ValoTheme.UI_WITH_MENU);
 
 		try {
-			getMainScreen().addView(new ReferentielView());
-			getMainScreen().addView(new ProgressionView());
-			getMainScreen().addView(new SequenceView());
-			getMainScreen().addView(new XMLImportView());
+			// TODO insert view
+			// getMainScreen().addView(new ReferentielView());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -118,13 +111,13 @@ public class PROGRESSUI extends UI {
 		getNavigator().navigateTo(getNavigator().getState());
 	}
 
-	public static PROGRESSUI get() {
-		return (PROGRESSUI) UI.getCurrent();
+	public static POCTEFAUI get() {
+		return (POCTEFAUI) UI.getCurrent();
 	}
 
-	@WebServlet(urlPatterns = "/*", name = "PROGRESSUIServlet", asyncSupported = true)
-	@VaadinServletConfiguration(ui = PROGRESSUI.class, productionMode = false)
-	public static class ProgressUIServlet extends VaadinServlet {
+	@WebServlet(urlPatterns = "/*", name = "POCTEFAUIServlet", asyncSupported = true)
+	@VaadinServletConfiguration(ui = POCTEFAUI.class, productionMode = false)
+	public static class POCTEFAUIServlet extends VaadinServlet {
 	}
 
 }

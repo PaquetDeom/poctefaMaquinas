@@ -12,10 +12,10 @@ import javax.validation.ValidatorFactory;
 
 import com.vaadin.addon.jpacontainer.JPAContainerFactory;
 
-public class ProgFactory {
+public class PoctefaFactory {
 	private static final long serialVersionUID = 1L;
 
-	public static final String PERSISTENCE_UNIT = "progress";
+	public static final String PERSISTENCE_UNIT = "poctefa";
 	private static EntityManager em;
 
 	// définition du lien avec la base de donnée
@@ -31,14 +31,14 @@ public class ProgFactory {
 		return em;
 	}
 
-	public static boolean checkConstraints(ProgItem entity) {
+	public static boolean checkConstraints(PoctefaItem entity) {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
-		Set<ConstraintViolation<ProgItem>> constraintViolations = validator.validate(entity);
+		Set<ConstraintViolation<PoctefaItem>> constraintViolations = validator.validate(entity);
 		if (constraintViolations.size() > 0) {
-			Iterator<ConstraintViolation<ProgItem>> iterator = constraintViolations.iterator();
+			Iterator<ConstraintViolation<PoctefaItem>> iterator = constraintViolations.iterator();
 			while (iterator.hasNext()) {
-				ConstraintViolation<ProgItem> cv = iterator.next();
+				ConstraintViolation<PoctefaItem> cv = iterator.next();
 				System.err
 						.println(cv.getRootBeanClass().getName() + "." + cv.getPropertyPath() + " " + cv.getMessage());
 				return false;
@@ -47,7 +47,7 @@ public class ProgFactory {
 		return true;
 	}
 
-	public static ProgItem create(String origin, ProgItem entity) {
+	public static PoctefaItem create(String origin, PoctefaItem entity) {
 		if (checkConstraints(entity)) {
 			getEntityManager().getTransaction().begin();
 			entity.setCreateCoockie(origin);
@@ -58,7 +58,7 @@ public class ProgFactory {
 		return entity;
 	}
 
-	public static ProgItem update(String origin, ProgItem entity) {
+	public static PoctefaItem update(String origin, PoctefaItem entity) {
 		getEntityManager().getTransaction().begin();
 		entity.setModifyCoockie(origin);
 		entity = getEntityManager().merge(entity);
@@ -66,7 +66,7 @@ public class ProgFactory {
 		return entity;
 	}
 
-	public static ProgItem softDelete(String origin, ProgItem entity) {
+	public static PoctefaItem softDelete(String origin, PoctefaItem entity) {
 		getEntityManager().getTransaction().begin();
 		entity.setDeleteCoockie(origin);
 		entity = getEntityManager().merge(entity);

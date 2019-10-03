@@ -17,8 +17,8 @@ import com.vaadin.addon.jpacontainer.JPAContainerFactory;
 import com.vaadin.data.Property;
 
 @SuppressWarnings({ "serial", "rawtypes" })
-public class ProgContainer extends ProgFactory implements FindAllCrudOperationListener {
-	private Class<ProgItem> entityClass = null;
+public class PoctefaContainer extends PoctefaFactory implements FindAllCrudOperationListener {
+	private Class<PoctefaItem> entityClass = null;
 	private AnnotationInfo info = null;
 
 	/**
@@ -28,11 +28,11 @@ public class ProgContainer extends ProgFactory implements FindAllCrudOperationLi
 		return info.getTableName();
 	}
 
-	public Property<Object> getProperty(ProgItem entity, String mappedBy) {
+	public Property<Object> getProperty(PoctefaItem entity, String mappedBy) {
 		return null;
 	}
 
-	public ProgContainer(Class entityClass) {
+	public PoctefaContainer(Class entityClass) {
 		this.entityClass = entityClass;
 		info = new AnnotationInfo(entityClass);
 	}
@@ -44,11 +44,11 @@ public class ProgContainer extends ProgFactory implements FindAllCrudOperationLi
 	@Override
 	public Collection findAll() {
 		CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
-		CriteriaQuery<ProgItem> cq = (CriteriaQuery<ProgItem>) cb.createQuery(entityClass);
-		Root<ProgItem> rootEntry = (Root<ProgItem>) cq.from(entityClass);
-		CriteriaQuery<ProgItem> all = cq.select(rootEntry);
-		TypedQuery<ProgItem> allQuery = getEntityManager().createQuery(all);
-		return (Collection<ProgItem>) allQuery.getResultList();
+		CriteriaQuery<PoctefaItem> cq = (CriteriaQuery<PoctefaItem>) cb.createQuery(entityClass);
+		Root<PoctefaItem> rootEntry = (Root<PoctefaItem>) cq.from(entityClass);
+		CriteriaQuery<PoctefaItem> all = cq.select(rootEntry);
+		TypedQuery<PoctefaItem> allQuery = getEntityManager().createQuery(all);
+		return (Collection<PoctefaItem>) allQuery.getResultList();
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class ProgContainer extends ProgFactory implements FindAllCrudOperationLi
 
 			@Override
 			public Object perform(Object domainObject) {
-				return create("CRUDVIEW", (ProgItem) domainObject);
+				return create("CRUDVIEW", (PoctefaItem) domainObject);
 			}
 		};
 	}
@@ -73,7 +73,7 @@ public class ProgContainer extends ProgFactory implements FindAllCrudOperationLi
 		return new DeleteOperationListener() {
 			@Override
 			public void perform(Object domainObject) {
-				softDelete("CRUDVIEW", (ProgItem) domainObject);
+				softDelete("CRUDVIEW", (PoctefaItem) domainObject);
 			}
 		};
 	}
@@ -84,7 +84,7 @@ public class ProgContainer extends ProgFactory implements FindAllCrudOperationLi
 
 			@Override
 			public Object perform(Object domainObject) {
-				return update("CRUDVIEW", (ProgItem) domainObject);
+				return update("CRUDVIEW", (PoctefaItem) domainObject);
 			}
 		};
 	}

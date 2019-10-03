@@ -1,7 +1,5 @@
 package fr.paquet.framework.ui;
 
-import java.util.Set;
-
 import javax.persistence.EntityManager;
 import javax.persistence.metamodel.EntityType;
 import javax.persistence.metamodel.Metamodel;
@@ -31,6 +29,10 @@ import fr.paquet.framework.authentication.User;
  * 
  */
 public class MainScreen extends HorizontalLayout {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// contient le menu principal de l'application
 	private Menu menu;
 	
@@ -38,7 +40,7 @@ public class MainScreen extends HorizontalLayout {
 		// définie le style CSS
 		setStyleName("main-screen");
 		// renseigne la classe chargée de faire les conversions  
-		VaadinSession.getCurrent().setConverterFactory(new ProgConverterFactory());
+		VaadinSession.getCurrent().setConverterFactory(new PoctefaConverterFactory());
 		
 		//Container principal
 		CssLayout viewContainer = new CssLayout();
@@ -59,7 +61,7 @@ public class MainScreen extends HorizontalLayout {
 	}
 
 	//Ajoute une vue au menu
-	public void addView(ProgView view) {
+	public void addView(PoctefaView view) {
 		menu.addView(view, view.getCaption(), view.getCaption(), view.getIcon());
 	}
 	// notify the view menu about view changes so that it can display which view

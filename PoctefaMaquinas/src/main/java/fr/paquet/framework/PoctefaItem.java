@@ -11,7 +11,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
 @MappedSuperclass
-public class ProgItem {
+public class PoctefaItem {
 	@Column(name="topSup", length=1)
 	private String topSup="N";
 	

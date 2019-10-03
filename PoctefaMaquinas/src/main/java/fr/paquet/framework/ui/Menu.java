@@ -28,6 +28,10 @@ import com.vaadin.ui.themes.ValoTheme;
  */
 public class Menu extends CssLayout {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String VALO_MENUITEMS = "valo-menuitems";
 	private static final String VALO_MENU_TOGGLE = "valo-menu-toggle";
 	private static final String VALO_MENU_VISIBLE = "valo-menu-visible";
@@ -48,7 +52,7 @@ public class Menu extends CssLayout {
 		top.setDefaultComponentAlignment(Alignment.MIDDLE_LEFT);
 		top.addStyleName(ValoTheme.MENU_TITLE);
 		top.setSpacing(true);
-		Label title = new Label("PROGRESS");
+		Label title = new Label("POCTEFA");
 		title.addStyleName(ValoTheme.LABEL_H3);
 		title.setSizeUndefined();
 		Image image = new Image(null, new ThemeResource("img/logo32.gif"));

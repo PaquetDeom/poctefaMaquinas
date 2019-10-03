@@ -19,7 +19,12 @@ import eu.maxschuster.vaadin.colorpickerfield.converter.ColorToHexConverter;
  * @author bda
  *
  */
-public class ProgConverterFactory extends DefaultConverterFactory {
+public class PoctefaConverterFactory extends DefaultConverterFactory {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("unchecked")
 	@Override
