@@ -1,5 +1,7 @@
 package sol;
 
+import java.util.regex.Pattern;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MAQUINA")
+@Table(name = "MAQUINA")
 public class Maquina {
 
 	@Id
@@ -19,7 +21,7 @@ public class Maquina {
 	private String name = null;
 
 	@Column(length = 50)
-	private String code = null;
+	private String ipAdress = null;
 
 	public Maquina() {
 		super();
@@ -30,9 +32,9 @@ public class Maquina {
 		setName(name);
 	}
 
-	public Maquina(String name, String code) {
+	public Maquina(String name, String ipAdress) throws Exception {
 		this(name);
-		setCode(code);
+		setIpAdress(ipAdress);
 	}
 
 	public String getName() {
@@ -44,12 +46,22 @@ public class Maquina {
 		this.name = name;
 	}
 
-	public String getCode() {
-		return code;
+	public String getIpAdress() {
+		return ipAdress;
 	}
 
-	private void setCode(String code) {
-		this.code = code;
+	private void setIpAdress(String ipAdress) throws Exception {
+
+		String zeroTo255 = "([01]?[0-9]{1,2}|2[0-4][0-9]|25[0-5])";
+
+		String IP_REGEXP = zeroTo255 + "\\." + zeroTo255 + "\\." + zeroTo255 + "\\." + zeroTo255;
+
+		Pattern IP_PATTERN = Pattern.compile(IP_REGEXP);
+
+		if (IP_PATTERN.matcher(ipAdress).matches())
+			this.ipAdress = ipAdress;
+		else
+			throw new Exception("Adress IP Invalide");
 	}
 
 	public int getId() {

@@ -1,30 +1,46 @@
 package sol;
 
+import javax.persistence.*;
 
+@MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Person {
 	// Attributes
-	protected int id;
-	protected String lastName = null;
-	protected String name = null;
-	protected String code = null;
-	
 
-	//constructor
+	@Id
+	@Column(name = "ID", length = 20)
+	protected int id;
+
+	@Column(name = "LASTNAME", length = 30)
+	protected String lastName = null;
+
+	@Column(name = "NAME", length = 30)
+	protected String name = null;
+
+	@Column(name = "CODE", length = 4)
+	protected String code = null;
+
+	// constructor
 	public Person() {
 		super();
 	}
-	public Person(int id,String lastName, String name, String code) {
-		this.id = id;
-		this.lastName = lastName;
-		this.name = name;
-		this.code = code;
+
+	public Person(String lastName, String name) {
+		super();
+
+		setLastName(lastName);
+		setName(name);
+
 	}
+
 	// Getters and Setters
 	public int getId() {
 		return this.id;
 	}
 
-	public abstract void setId(int id);
+	private void setId(int id) {
+		this.id = id;
+	}
 
 	public String getLastName() {
 		return this.lastName;
@@ -32,17 +48,17 @@ public abstract class Person {
 
 	public abstract void setLastName(String lastName);
 
-	public String getName(){
+	public String getName() {
 		return this.name;
 	}
 
 	public abstract void setName(String name);
-	
+
 	public String getCode() {
 		return this.code;
-		
+
 	}
-	
+
 	public abstract void setCode(String code);
 
 }

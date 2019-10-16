@@ -19,7 +19,8 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
 import fr.paquet.framework.authentication.*;
 import fr.paquet.framework.ui.LoginScreen.*;
-
+import sol.pantallas.*;
+import sol.pantallas.PantallasExampleView;
 import fr.paquet.framework.*;
 
 /**
@@ -101,7 +102,7 @@ public class POCTEFAUI extends UI {
 
 		try {
 			// TODO insert view
-			// getMainScreen().addView(new ReferentielView());
+			getMainScreen().addView(new PantallasExampleView());
 
 		} catch (Exception e) {
 			e.printStackTrace();

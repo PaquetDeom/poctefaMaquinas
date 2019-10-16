@@ -1,8 +1,15 @@
 package sol;
 
 
-import java.util.Random; 
+import java.util.Random;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column; 
+
+@AttributeOverrides({
+	@AttributeOverride(name = "id", column = @Column(name = "ID", length = 20))
+})
 public class Code {
 	//Attributes
 	private String code = null;
