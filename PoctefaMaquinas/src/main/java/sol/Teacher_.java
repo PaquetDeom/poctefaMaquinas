@@ -5,12 +5,12 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="Dali", date="2019-10-11T14:30:19.015+0200")
+@Generated(value="Dali", date="2019-10-16T16:34:39.880+0200")
 @StaticMetamodel(Teacher.class)
 public class Teacher_ extends Person_ {
-	public static volatile SingularAttribute<Teacher, Integer> id;
 	public static volatile SingularAttribute<Teacher, String> username;
 	public static volatile SingularAttribute<Teacher, Password> password;
+	public static volatile SingularAttribute<Teacher, Integer> id;
 	public static volatile ListAttribute<Teacher, Maquina> maquinas;
 	public static volatile ListAttribute<Teacher, Student> students;
 }
