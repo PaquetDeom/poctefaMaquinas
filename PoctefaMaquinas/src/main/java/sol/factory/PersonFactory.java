@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-public class PasswordFactory extends GeneralFactory {
+public class PersonFactory extends GeneralFactory {
 
 	@Override
 	public Object findByName(Object object) {
 
-		Query query = getEm().createQuery("SELECT Password FROM Password where Password.pass=:pass");
-		query.setParameter("pass", (String) object);
+		Query query = getEm().createQuery("SELECT Person FROM Person where Person.per=:per");
+		query.setParameter("per", (String) object);
 
 		return (String) query.getSingleResult();
 	}

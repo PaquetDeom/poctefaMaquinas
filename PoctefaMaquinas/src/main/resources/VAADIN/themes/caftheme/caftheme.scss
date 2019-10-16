@@ -31,12 +31,12 @@
 
 $v-luminance-threshold: 180 !default;
 
-$editor-background-color: #3b3f42 !default;
+$editor-background-color: #0D83BB !default;
 $valo-menu-background-color: $editor-background-color !default;
 
 $v-focus-color: rgb(96, 160, 234) !default;
 $v-error-indicator-color: #eb2977 !default;
-$v-friendly-color: rgb(54, 185, 85);
+$v-friendly-color:#D00153;
 
 $v-font-size: 15px !default;
 $v-font-weight: 400 !default;
@@ -46,7 +46,7 @@ $login-info-width: 300px !default;
 $login-info-opacity: 0.7 !default;
 $login-background-color: $editor-background-color !default;
 // Get more background images from unsplash.com (remember to optimize the filesize)
-$login-background-image: "img/archetype-login-bg.jpg" !default;
+$login-background-image: "img/fusionIns.jpg" !default;
 
 $editor-shadow: 0 0 10px 10px rgba(0,0,0,.1) !default;
 $editor-embed-background-color: darken($editor-background-color, 5%) !default;
@@ -66,7 +66,6 @@ $v-layout-spacing-horizontal: round($v-unit-size / 1.8) !default;
 
 @mixin caftheme {
   @include valo;
-
 
   // login screen - for small screens, see below
   .login-screen {

@@ -1,38 +1,86 @@
 package sol;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "STUDENT")
+@AttributeOverrides({ @AttributeOverride(name = "id", column = @Column(name = "ID", length = 20)),
+		@AttributeOverride(name = "lastName", column = @Column(name = "LASTNAME", length = 30)),
+		@AttributeOverride(name = "name", column = @Column(name = "NAME", length = 30)),
+		@AttributeOverride(name = "code", column = @Column(name = "CODE", length = 4)) })
 public class Teacher extends Person {
-	//Attributes
-	private String username = null;
-	private String password = null;
+	// Attributes
 	
-	//Constructor
+	@Id
+	@GeneratedValue
+	@Column
+	private int id = 0;
+	
+	@Column(name = "USERNAME", length = 50)
+	private String username = null;
+	
+	@Column(name = "PASSWORD", length = 50)
+	private Password password = null;
+
+	@ManyToMany
+	private List<Maquina> maquinas = null;
+	
+	@ManyToMany
+	private List<Student> students = null;
+
+	
+	public List<Maquina> getMaquinas() {
+		if (maquinas == null)
+			maquinas = new ArrayList<Maquina>();
+		return maquinas;
+	}
+
+	public void addMaquinas(Maquina maquina) {
+		getMaquinas().add(maquina);
+	}
+
+	public List<Student> getStudents() {
+		if (students == null)
+			students = new ArrayList<Student>();
+		return students;
+	}
+
+	public void addStudent(Student student) {
+		getStudents().add(student);
+	}
+
+	// Constructor
 	public Teacher() {
 		super();
 	}
-	
-	public Teacher(int id, String lastName, String name,String code, String username,String password) {
-		super(id, lastName, name,code);
+
+	public Teacher(String lastName, String name) {
+		super(lastName, name);
 		setUsername(lastName, name);
-		setPassword(password);
+		password.setPassword();
 	}
 
-	//Getters and Setters
-	public String getPassword() {
-		return password;
-	}
+	// Getters and Setters
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public String getUsername() {
 		return username;
 	}
-		
-	//username = 1 letter of last name and all letters of name
-	public void setUsername(String lastName, String name) {
-		username = lastName.charAt(0)+name;
+
+	// username = 1 letter of last name and all letters of name
+	private void setUsername(String lastName, String name) {
+		username = name.trim().charAt(0) + lastName.trim().replaceAll(" ","");
 		this.username = username.toUpperCase();
 	}
 
@@ -42,12 +90,6 @@ public class Teacher extends Person {
 
 	public void setCode(String code) {
 		this.code = code;
-	}
-	@Override
-	public void setId(int id) {
-		// TODO Auto-generated method stub
-		this.id = id;
-		
 	}
 
 	@Override
@@ -60,12 +102,11 @@ public class Teacher extends Person {
 	public void setName(String name) {
 		// TODO Auto-generated method stub
 		this.name = name;
-		
+
 	}
-	
+
 	public boolean givePermission() {
 		return false;
 	}
-	
-	
+
 }
