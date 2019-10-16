@@ -8,53 +8,44 @@ import sol.Student;
 import sol.Student;
 
 public class TestStudent {
-		@Test
-		public void TestId() {
-			try {
-				Student t= new Student(12345, "", "", "");
-				assertTrue(t.getId()>0);
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-			
-		}
+		
 		@Test
 		public void TestName() {
 			String name="Jane";
 			for (int i = 0; i < 7; i++) {
 				switch (i) {
 					case 0:{
-						Student t= new Student(0, "", "   Jane", "");
+						Student t= new Student("", "   Jane");
 						assertTrue(name.equals(t.getName()));
 					}break;
 					
 					case 1:{
-						Student t= new Student(0, "", "Jane    ", "");
+						Student t= new Student("", "Jane    ");
 						assertTrue(name.equals(t.getName()));
 					}break;
 					
 					case 2:{
-						Student t= new Student(0, "", "JANE","");
+						Student t= new Student( "", "JANE");
 						assertTrue(name.equals(t.getName()));				
 					}break;
 					
 					case 3:{
-						Student t= new Student(0, "", "jane","");
+						Student t= new Student("", "jane");
 						assertTrue(name.equals(t.getName()));
 					}break;
 					
 					case 4:{
-						Student t= new Student(0, "", "Janie","");
+						Student t= new Student( "", "Janie");
 						assertTrue(name.equals(t.getName()));
 					}break;
 					
 					case 5:{
-						Student t= new Student(0, "", "jaNe","");
+						Student t= new Student( "", "jaNe");
 						assertTrue(name.equals(t.getName()));
 					}break;
 					
 					case 6:{
-						Student t= new Student(0, "", "Jane","");
+						Student t= new Student( "", "Jane");
 						assertTrue(name.equals(t.getName()));
 					}break;			
 				}
@@ -66,37 +57,37 @@ public class TestStudent {
 			for (int i = 0; i < 7; i++) {
 				switch (i) {
 					case 0:{
-						Student t= new Student(0, "   SMITH", "", "");
+						Student t= new Student( "   SMITH", "");
 						assertTrue(lastName.equals(t.getLastName()));
 					}break;
 					
 					case 1:{
-						Student t= new Student(0, "SMITH   ", "","");
+						Student t= new Student( "SMITH   ", "");
 						assertTrue(lastName.equals(t.getLastName()));
 					}break;
 					
 					case 2:{
-						Student t= new Student(0, "Smith", "", "");
+						Student t= new Student( "Smith", "");
 						assertTrue(lastName.equals(t.getLastName()));				
 					}break;
 					
 					case 3:{
-						Student t= new Student(0, "SMItH", "", "");
+						Student t= new Student("SMItH", "");
 						assertTrue(lastName.equals(t.getLastName()));
 					}break;
 					
 					case 4:{
-						Student t= new Student(0, "smith", "", "");
+						Student t= new Student("smith", "");
 						assertTrue(lastName.equals(t.getLastName()));
 					}break;
 					
 					case 5:{
-						Student t= new Student(0, "SMETH", "", "");
+						Student t= new Student( "SMETH", "");
 						assertTrue(lastName.equals(t.getLastName()));
 					}break;
 					
 					case 6:{
-						Student t= new Student(0, "SMITH", "", "");
+						Student t= new Student("SMITH", "");
 						assertTrue(lastName.equals(t.getLastName()));
 					}break;			
 				}
@@ -104,7 +95,7 @@ public class TestStudent {
 		}
 		@Test
 		public void TestCode() {
-			Student t= new Student(0, "", "", "1111");
+			Student t= new Student("", "1111");
 			assertTrue(t.getCode().length()==4);
 			for (int i = 0; i < 4; i++) {
 				assertTrue(t.getCode().charAt(i)<=90 && t.getCode().charAt(i)>=65 );

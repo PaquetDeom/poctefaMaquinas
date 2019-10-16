@@ -5,25 +5,17 @@ import sol.Teacher;
 
 
 public class TestTeacher {
-	@Test
-	public void TestPassword() {
-		Teacher t = new Teacher(0,"","","","1234567A");
-		assertTrue(t.getPassword().length()==8);
-		for(int i=0;i<7;++i) {
-			assertTrue(t.getPassword().charAt(i)<=57 && t.getPassword().charAt(i)>=48);
-		}
-		assertTrue(t.getPassword().charAt(7)<=65 && t.getPassword().charAt(7)>=90);
-
-	}
+	
+	
 	@Test
 	public void TestUsername() {
-		Teacher t= new Teacher(0,"Maylinch Girona","Jordi","","");
+		Teacher t= new Teacher("Jordi","");
 		String user="JMaylinchGirona";
 		assertTrue(t.getUsername().equals(user));
 	}
 	@Test
 	public void TestId() {
-		Teacher t= new Teacher(12345,"","","","");
+		Teacher t= new Teacher("","");
 		assertTrue(t.getId()>0);
 	}
 	@Test
@@ -32,37 +24,37 @@ public class TestTeacher {
 		for (int i = 0; i < 7; i++) {
 			switch (i) {
 				case 0:{
-					Teacher t= new Teacher(0, "", "   Jane", "","");
+					Teacher t= new Teacher("   Jane", "");
 					assertTrue(name.equals(t.getName()));
 				}break;
 				
 				case 1:{
-					Teacher t= new Teacher(0, "", "Jane    ", "","");
+					Teacher t= new Teacher( "Jane    ", "");
 					assertTrue(name.equals(t.getName()));
 				}break;
 				
 				case 2:{
-					Teacher t= new Teacher(0, "", "JANE", "","");
+					Teacher t= new Teacher( "JANE","");
 					assertTrue(name.equals(t.getName()));				
 				}break;
 				
 				case 3:{
-					Teacher t= new Teacher(0, "", "jane", "","");
+					Teacher t= new Teacher("jane","");
 					assertTrue(name.equals(t.getName()));
 				}break;
 				
 				case 4:{
-					Teacher t= new Teacher(0, "", "Janie", "","");
+					Teacher t= new Teacher("Janie", "");
 					assertTrue(name.equals(t.getName()));
 				}break;
 				
 				case 5:{
-					Teacher t= new Teacher(0, "", "jaNe", "","");
+					Teacher t= new Teacher("jaNe", "");
 					assertTrue(name.equals(t.getName()));
 				}break;
 				
 				case 6:{
-					Teacher t= new Teacher(0, "", "Jane", "","");
+					Teacher t= new Teacher("Jane","");
 					assertTrue(name.equals(t.getName()));
 				}break;			
 			}
@@ -74,37 +66,37 @@ public class TestTeacher {
 		for (int i = 0; i < 7; i++) {
 			switch (i) {
 				case 0:{
-					Teacher t= new Teacher(0, "   SMITH", "", "","");
+					Teacher t= new Teacher("   SMITH","");
 					assertTrue(lastName.equals(t.getLastName()));
 				}break;
 				
 				case 1:{
-					Teacher t= new Teacher(0, "SMITH   ", "", "","");
+					Teacher t= new Teacher("SMITH   ",  "");
 					assertTrue(lastName.equals(t.getLastName()));
 				}break;
 				
 				case 2:{
-					Teacher t= new Teacher(0, "Smith", "", "","");
+					Teacher t= new Teacher( "Smith", "");
 					assertTrue(lastName.equals(t.getLastName()));				
 				}break;
 				
 				case 3:{
-					Teacher t= new Teacher(0, "SMItH", "", "","");
+					Teacher t= new Teacher( "SMItH", "");
 					assertTrue(lastName.equals(t.getLastName()));
 				}break;
 				
 				case 4:{
-					Teacher t= new Teacher(0, "smith", "", "","");
+					Teacher t= new Teacher( "smith", "");
 					assertTrue(lastName.equals(t.getLastName()));
 				}break;
 				
 				case 5:{
-					Teacher t= new Teacher(0, "SMETH", "", "","");
+					Teacher t= new Teacher( "SMETH", "");
 					assertTrue(lastName.equals(t.getLastName()));
 				}break;
 				
 				case 6:{
-					Teacher t= new Teacher(0, "SMITH", "", "","");
+					Teacher t= new Teacher( "SMITH", "");
 					assertTrue(lastName.equals(t.getLastName()));
 				}break;			
 			}
@@ -112,7 +104,7 @@ public class TestTeacher {
 	}
 	@Test
 	public void TestCode() {
-		Teacher t= new Teacher(0, "", "", "1111", "");
+		Teacher t= new Teacher(  "1111", "");
 		assertTrue(t.getCode().length()==4);
 		for (int i = 0; i < 4; i++) {
 			assertTrue(t.getCode().charAt(i)<=90 && t.getCode().charAt(i)>=65 );
