@@ -1,0 +1,160 @@
+* {
+	margin: 0;
+}
+
+header
+{
+	 width:100%;
+	 height:50px;
+	 position: fixed;
+	 background-color:white;
+
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: space-between;
+	 align-items: center;
+	 flex-wrap: nowrap;
+ }
+
+.logos
+ {
+ 	width:30%;
+ 	height: 90%;
+ 	display: flex;
+ 	-webkit-flex-flow: row wrap;
+  justify-content: flex-end;
+ }
+
+#logoInsCastellet
+ {
+ 	width: 95px;
+ 	margin-right: 5px;
+ }
+
+#logoLyree
+{
+ 	width: 50px;
+ 	margin-right: 5px;
+ }
+
+#logoPoctefa
+{
+ 	width: 100px;
+ 	margin-right: 5px;
+}
+
+body
+{
+	background-image: url("photos/finale3.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+  background-size: cover;
+	background-color:#FFFFFF;
+
+	display: flex;
+	flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content:flex-start;
+  align-items: left;
+  align-content: space-between;
+}
+/* #D00153 rosa */
+
+.squareLogin {
+				width: 300px;
+				max-width: 400px;
+				margin: 0 auto;
+				color: blue;
+				padding: 270px;
+				position:static;
+}
+#Login {
+		padding: 0px 25px 25px;
+		background: #0D83BB;
+		box-shadow:
+			 0px 0px 0px 5px rgba( 255,255,255,0.4 ),
+			 0px 4px 20px rgba( 0,0,0,0.33 );
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		display: table;
+		position: static;
+}
+.Cabecera {
+	color: white;
+	font-size: 17px;
+	font-weight:bold;
+	font-family: Open sans-serif;
+	margin-bottom: 7px;
+	margin-top: 7px;
+}
+
+.sep {
+    height: 5px;
+    width: 300px;
+    margin: 0px -25px;
+}
+
+#Login .inputs input[type=username], input[type=password] {
+    background: #f5f5f5;
+    font-size:0.8rem;
+		font-family: Open sans-serif;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    padding: 8px 8px;
+    width: 200px;
+    margin-bottom:5px;
+    box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
+    clear: both;
+}
+
+#Login .inputs input[type=username]:focus, input[type=password]:focus {
+    background: #fff;
+    box-shadow: 0px 0px 0px 3px #D00153, inset 0px 2px 3px rgba( 0,0,0,0.2 ), 0px 5px 5px rgba( 0,0,0,0.15 );
+    outline: none;
+}
+
+#Login #Entrer {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 0;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+		font-family: Open sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    background: #D00153;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #737b8d;
+    -moz-box-shadow:
+        0px 5px 5px rgba(000,000,000,0.1),
+        inset 0px 1px 0px rgba(255,255,255,0.5);
+    -webkit-box-shadow:
+        0px 5px 5px rgba(000,000,000,0.1),
+        inset 0px 1px 0px rgba(255,255,255,0.5);
+    box-shadow:
+        0px 5px 5px rgba(000,000,000,0.1),
+        inset 0px 1px 0px rgba(255,255,255,0.5);
+    text-shadow:
+        0px 1px 3px rgba(000,000,000,0.3),
+        0px 0px 0px rgba(255,255,255,0);
+    display: table;
+    position: static;
+    clear: both;
+}
+
+
+h1 {
+	font-family: Open sans-serif;
+	text-shadow: 3px 2px #D00153;
+	font-size: calc(1rem + 1vw);
+	color: #0D83BB;
+	margin: 1%;
+}
